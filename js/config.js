@@ -15,8 +15,25 @@ console.clear();
 //          applyFill( event.target);
 // });
 
+// the applyFill FUNCTION
+function applyFill ( slider ) {
+    const percentage = (100 * (slider.value - slider.min)) / (slider.max - slider.min);
+    sliderValue.setAttribute( 'length', sliderValue);
+}
+
 // selecting range and passing it through a applyFill function
 // applyFill(slider.querySelector( 'input' ));
 
-// the applyFill FUNCTION
-// ??
+// Const of names we will use to create random letters of passwords
+const randomLetter = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    symbol: getRandomSymbol
+};
+
+//------ Generator Functions --------//
+
+function getRandomLower () {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
