@@ -50,3 +50,7 @@ const randomLetter = {
 //     const symbols = '~!@#$%^&*()_+{}":?<>;.,';
 //     return symbols[Math.floor(Math.random() * symbols.length)];
 // }
+
+// ---- Selecting DOM elements required ------ //
+
+// const resultFin =
