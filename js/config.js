@@ -57,3 +57,17 @@ function getRandomSymbol() {
 const resultFin = $("result");
 // Input slider used to change length of password
 const lengthPass = $("slider");
+
+// Settings - checkboxes
+const uppercaseFin = $("uppercase");
+const lowercaseFin = $("lowercase");
+const numberFin = $("number");
+const symbolFin = $("symbol");
+
+// Button to generate password
+const generateBttn = $("generate");
+
+// Result viewbox
+const resultView = $(".result");
+
+
