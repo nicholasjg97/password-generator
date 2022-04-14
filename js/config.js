@@ -71,3 +71,18 @@ const generateBttn = $("generate");
 const resultView = $(".result");
 
 
+// When generator button is pushed
+generateBttn.addEventListener("click", () => {
+    const length = lengthPass.value;
+    const incLower = lowercaseFin.checked;
+    const incUpper = uppercaseFin.checked;
+    const incNumber = numberFin.checked;
+    const incSymbol = symbolFin.checked;
+    resultFin.innerText = generatePassword(length, incLower, incUpper, incNumber, incSymbol);
+});
+
+// Function responsible for generating password
+
+function generatePassword (length, lower, upper, number, symbol) {
+
+}
