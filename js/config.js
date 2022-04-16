@@ -85,4 +85,17 @@ generateBttn.addEventListener("click", () => {
 
 function generatePassword (length, lower, upper, number, symbol) {
 
+    let generatedPW = "";
+    const typesCount = lower + upper + number + symbol;
+    const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+    if (typesCount === 0) {
+        return "";
+    }
+    for (let i = 0; i < length; i++) {
+        typesArr.forEach(type => {
+            const funcName = Object.keys(type)[0];
+            generatePassword += randomFunc[funcName]();
+        });
+    }
+    return generatePassword.slice(0, length);
 }
