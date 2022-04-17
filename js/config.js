@@ -99,3 +99,23 @@ function generatePassword (length, lower, upper, number, symbol) {
     }
     return generatePassword.slice(0, length);
 }
+
+// Make sure one checkbox is only selected
+
+function oneCheckboxOnly () {
+
+    let totalCheck = [uppercaseFin, lowercaseFin, numberFin, symbolFin].filter(fin => fin.checked)
+    totalCheck.forEach(fin => {
+        if (totalCheck.length == 1) {
+            fin.disabled = true;
+        } else {
+            fin.disabled = false;
+        }
+    })
+};
+
+[uppercaseFin, lowercaseFin, numberFin, symbolFin].forEach(fin => {
+    fin.addEventListener("click", () => {
+        disableOnlyCheckBox()
+    })
+})
