@@ -10,19 +10,19 @@ const slider = $(".length-slider");
 const sliderValue = $(".length-title");
 
 // use event listener to change value of text and fill slider
-slider.querySelector( 'input' ).addEventListener( 'input', event =>
-{ sliderValue.setAttribute ( "length", event.target.value);
+slider.querySelector( 'input' ).addEventListener( "input", event =>
+{ sliderValue.setAttribute ( "data-length", event.target.value);
     applyFill(event.target);
 });
 
 // the applyFill FUNCTION
 function applyFill ( slider ) {
     const percentage = (100 * (slider.value - slider.min)) / (slider.max - slider.min);
-    sliderValue.setAttribute( 'length', sliderValue);
+    sliderValue.setAttribute( "length", slider.value);
 }
 
 // selecting range and passing it through a applyFill function
-applyFill(slider.querySelector( 'input' ));
+applyFill(slider.querySelector( "input" ));
 
 // Const of names we will use to create random letters of passwords
 const randomLetter = {
