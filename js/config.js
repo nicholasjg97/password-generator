@@ -56,7 +56,7 @@ function getRandomSymbol() {
 // Result of random password
 const resultFin = $("result");
 // Input slider used to change length of password
-const lengthPass = $("slider");
+const lengthFin = $("slider");
 
 // Settings - checkboxes
 const uppercaseFin = $("uppercase");
@@ -68,12 +68,12 @@ const symbolFin = $("symbol");
 const generateBttn = $("generate");
 
 // Result viewbox
-const resultView = $(".result");
+const resultViewCont = $(".result");
 
 
-// When generator button is pushed
+// When generator button is pushed pw id generated
 generateBttn.addEventListener("click", () => {
-    const length = lengthPass.value;
+    const length = lengthFin.value;
     const incLower = lowercaseFin.checked;
     const incUpper = uppercaseFin.checked;
     const incNumber = numberFin.checked;
@@ -81,13 +81,16 @@ generateBttn.addEventListener("click", () => {
     resultFin.innerText = generatePassword(length, incLower, incUpper, incNumber, incSymbol);
 });
 
-// Function responsible for generating password
+// Function responsible for generating password then returning it
 
 function generatePassword (length, lower, upper, number, symbol) {
 
     let generatedPW = "";
     const typesCount = lower + upper + number + symbol;
     const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+    if (typesCount === 0) {
+        return "";
+    }
     if (typesCount === 0) {
         return "";
     }
@@ -100,7 +103,7 @@ function generatePassword (length, lower, upper, number, symbol) {
     return generatePassword.slice(0, length);
 }
 
-// Make sure one checkbox is only selected
+// Make sure at least one checkbox is selected
 
 function oneCheckboxOnly () {
 
@@ -115,7 +118,7 @@ function oneCheckboxOnly () {
 };
 
 [uppercaseFin, lowercaseFin, numberFin, symbolFin].forEach(fin => {
-    fin.addEventListener("click", () => {
-        disableOnlyCheckBox()
-    })
-})
+    fin.addEventListener('click', () => {
+        disableOnlyCheckBox();
+    });
+});
