@@ -34,6 +34,10 @@ const randomLetter = {
 
 //------ Generator Functions --------//
 
+function mathRandom () {
+    return window.crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 25) - 1);
+}
+
 function getRandomLower () {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
